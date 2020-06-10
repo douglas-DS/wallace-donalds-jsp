@@ -8,7 +8,7 @@ import org.apache.catalina.webresources.StandardRoot;
 
 import java.io.File;
 
-public class Main {
+public class MainApplication {
 
     public static void main(String[] args) throws LifecycleException {
 
@@ -24,7 +24,7 @@ public class Main {
 
         tomcat.setPort(Integer.parseInt(webPort));
 
-        var ctx = (StandardContext) tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
+        var ctx = (StandardContext) tomcat.addWebapp("", new File(webappDirLocation).getAbsolutePath());
         System.out.println("configuring app with basedir: " + new File("./" + webappDirLocation).getAbsolutePath());
 
         // Declare an alternative location for your "WEB-INF/classes" dir
@@ -36,6 +36,7 @@ public class Main {
         ctx.setResources(resources);
 
         tomcat.start();
+        System.out.println(String.format("Server is running at http://localhost:%s", webPort));
         tomcat.getServer().await();
     }
 }
