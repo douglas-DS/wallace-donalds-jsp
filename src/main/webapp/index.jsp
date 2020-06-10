@@ -5,8 +5,6 @@
     </head>
 
     <body>
-        <%
-            System.out.println("Ola Mundo!");
-        %>
+        <h1>Index Page</h1>
     </body>
 </html>
