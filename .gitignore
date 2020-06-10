@@ -32,3 +32,5 @@ README.html
 # custom
 log/
 *.log
+
+tomcat.8080
