@@ -10,7 +10,7 @@
 
     <properties>
         <java.version>14</java.version>
-        <tomcat.version>8.5.38</tomcat.version>
+        <tomcat.version>8.5.55</tomcat.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
