@@ -1,6 +1,5 @@
 package com.ds.servlets;
 
-import com.ds.pojo.Product;
 import com.ds.service.ProductService;
 
 import javax.servlet.ServletException;
@@ -20,25 +19,24 @@ public class OrderServlet extends HttpServlet {
         var productService = new ProductService();
 
         var sandwichId = req.getParameter("sandwichId");
+        var sandwichQtd = req.getParameter("sandwichQtd");
         var sandwich = productService.findProductById(Integer.parseInt(sandwichId));
-//        req.setAttribute("sandwich", sandwich);
+        sandwich.setQuantity(new BigDecimal(sandwichQtd));
 
         var drinkId = req.getParameter("drinkId");
+        var drinkQtd = req.getParameter("drinkQtd");
         var drink = productService.findProductById(Integer.parseInt(drinkId));
-//        req.setAttribute("drink", drink);
+        drink.setQuantity(new BigDecimal(drinkQtd));
 
         var sideDishId = req.getParameter("sideDishId");
+        var sideDishQtd = req.getParameter("sideDishQtd");
         var sideDish = productService.findProductById(Integer.parseInt(sideDishId));
-//        req.setAttribute("sideDish", sideDish);
+        sideDish.setQuantity(new BigDecimal(sideDishQtd));
 
         var products = Arrays.asList(sandwich, sideDish, drink);
         req.setAttribute("products", products);
 
-        var total = products.stream()
-                .map(Product::getPrice)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-
-        req.setAttribute("total", total);
+        req.setAttribute("total", productService.getTotal(products));
 
         var reqDispatcher = req.getRequestDispatcher("./order.jsp");
         reqDispatcher.forward(req, resp);

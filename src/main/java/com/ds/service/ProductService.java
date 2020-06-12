@@ -52,6 +52,12 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
+    public BigDecimal getTotal(List<Product> products) {
+        return products.stream()
+                .map(product -> product.getQuantity().multiply(product.getPrice()))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
     public List<Product> getSandwichList() {
         return sandwichList;
     }

@@ -59,7 +59,10 @@
                             <!-- Line Items -->
                             <c:forEach items="${requestScope.products}" var="product">
                                 <div class="products">
-                                    <span> 1x ${product.name} / R$ ${product.price}</span>
+                                    <span>
+                                        <span style="color: red">${product.quantity}x</span>
+                                        ${product.name} <h4>R$ ${product.price.multiply(product.quantity)}</h4>
+                                    </span>
                                 </div>
                                 <hr>
                                 <div style="clear:both;"></div>

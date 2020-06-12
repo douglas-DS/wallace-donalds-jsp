@@ -10,6 +10,8 @@ public class Product {
 
     private BigDecimal price;
 
+    private BigDecimal quantity;
+
     public Product() {
     }
 
@@ -17,6 +19,7 @@ public class Product {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.quantity = BigDecimal.ONE;
     }
 
     public int getId() {
@@ -43,12 +46,21 @@ public class Product {
         this.price = price;
     }
 
+    public BigDecimal getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(BigDecimal quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
                 '}';
     }
 }

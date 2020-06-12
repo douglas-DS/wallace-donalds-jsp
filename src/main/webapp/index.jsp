@@ -18,6 +18,10 @@
                         <option value="${sandwich.id}">${sandwich.name} - R$${sandwich.price}</option>
                     </c:forEach>
                 </select>
+                <label class="quantity">
+                    Quantidade:
+                    <input type="number" name="sandwichQtd" value="1" />
+                </label>
 
                 <hr/>
 
@@ -27,6 +31,10 @@
                         <option value="${sideDish.id}">${sideDish.name} - R$${sideDish.price}</option>
                     </c:forEach>
                 </select>
+                <label class="quantity">
+                    Quantidade:
+                    <input type="number" name="sideDishQtd" value="1" />
+                </label>
 
                 <hr/>
 
@@ -36,6 +44,10 @@
                         <option value="${drink.id}">${drink.name} - R$${drink.price}</option>
                     </c:forEach>
                 </select>
+                <label class="quantity">
+                    Quantidade:
+                    <input type="number" name="drinkQtd" value="1" />
+                </label>
 
                 <hr/>
                 <button type="submit">FAZER PEDIDO</button>

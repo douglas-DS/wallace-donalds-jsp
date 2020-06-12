@@ -19,6 +19,17 @@ label {
     margin-bottom: 20px;
 }
 
+.quantity {
+    font-size: 20px;
+    flex: 2;
+    color: red;
+    width: 100%;
+}
+
+.quantity input {
+    width: 10%;
+}
+
 select, span {
     flex: 1;
     height: 46px;
